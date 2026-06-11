@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大学生期末大作业辅助平台</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-icon">📚</span>
+            <span class="logo-text">大作业助手</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">首页</a></li>
+            <li><a href="#topics">选题推荐</a></li>
+            <li><a href="#templates">写作模板</a></li>
+            <li><a href="#progress">进度管理</a></li>
+            <li><a href="#resources">学术资源</a></li>
+        </ul>
+    </nav>
+
+    <!-- 主页区域 -->
+    <section id="home" class="section active">
+        <div class="hero">
+            <h1>大学生期末大作业辅助平台</h1>
+            <p>一站式解决您的期末大作业难题</p>
+        </div>
+        <div class="features">
+            <div class="feature-card" onclick="showSection('topics')">
+                <div class="feature-icon" style="color: #3B82F6;">📋</div>
+                <h3>选题推荐</h3>
+                <p>热门学科选题方向推荐，帮您快速确定研究方向</p>
+            </div>
+            <div class="feature-card" onclick="showSection('templates')">
+                <div class="feature-icon" style="color: #22C55E;">📝</div>
+                <h3>写作模板</h3>
+                <p>论文、文献综述、实验报告等各类写作模板</p>
+            </div>
+            <div class="feature-card" onclick="showSection('progress')">
+                <div class="feature-icon" style="color: #A855F7;">📅</div>
+                <h3>进度管理</h3>
+                <p>制定计划、设置截止日期、追踪完成状态</p>
+            </div>
+            <div class="feature-card" onclick="showSection('resources')">
+                <div class="feature-icon" style="color: #F97316;">📚</div>
+                <h3>学术资源</h3>
+                <p>知网、万方等学术数据库导航链接</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 选题推荐区域 -->
+    <section id="topics" class="section">
+        <h2>选题推荐</h2>
+        <div class="filters">
+            <select id="subjectFilter" onchange="filterTopics()">
+                <option value="">全部学科</option>
+                <option value="计算机">计算机科学</option>
+                <option value="经济">经济学</option>
+                <option value="管理">管理学</option>
+                <option value="文学">文学</option>
+                <option value="法学">法学</option>
+            </select>
+            <select id="difficultyFilter" onchange="filterTopics()">
+                <option value="">全部难度</option>
+                <option value="简单">简单</option>
+                <option value="中等">中等</option>
+                <option value="困难">困难</option>
+            </select>
+            <input type="text" id="searchInput" placeholder="关键词搜索..." onkeyup="filterTopics()">
+        </div>
+        <div id="topicsList" class="topics-list"></div>
+    </section>
+
+    <!-- 写作模板区域 -->
+    <section id="templates" class="section">
+        <h2>写作模板</h2>
+        <div class="filters">
+            <select id="templateTypeFilter" onchange="filterTemplates()">
+                <option value="">全部类型</option>
+                <option value="论文">学术论文</option>
+                <option value="综述">文献综述</option>
+                <option value="报告">实验报告</option>
+                <option value="设计">课程设计</option>
+            </select>
+        </div>
+        <div id="templatesList" class="templates-list"></div>
+    </section>
+
+    <!-- 进度管理区域 -->
+    <section id="progress" class="section">
+        <h2>进度管理</h2>
+        <div class="progress-header">
+            <button class="btn-primary" onclick="showAddTaskModal()">+ 新建任务</button>
+        </div>
+        <div id="tasksList" class="tasks-list"></div>
+    </section>
+
+    <!-- 学术资源区域 -->
+    <section id="resources" class="section">
+        <h2>学术资源导航</h2>
+        <div class="resources-grid">
+            <div class="resource-card">
+                <div class="resource-icon">📖</div>
+                <h3>中国知网 (CNKI)</h3>
+                <p>中国最大的学术文献数据库</p>
+                <a href="https://www.cnki.net" target="_blank" class="btn-link">访问网站 →</a>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon">📚</div>
+                <h3>万方数据</h3>
+                <p>学术论文、期刊、学位论文数据库</p>
+                <a href="https://www.wanfangdata.com.cn" target="_blank" class="btn-link">访问网站 →</a>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon">📄</div>
+                <h3>维普期刊</h3>
+                <p>中文科技期刊文献数据库</p>
+                <a href="http://www.cqvip.com" target="_blank" class="btn-link">访问网站 →</a>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon">🔬</div>
+                <h3>百度学术</h3>
+                <p>免费学术文献搜索平台</p>
+                <a href="https://xueshu.baidu.com" target="_blank" class="btn-link">访问网站 →</a>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon">🌐</div>
+                <h3>谷歌学术</h3>
+                <p>全球学术文献搜索引擎</p>
+                <a href="https://scholar.google.com" target="_blank" class="btn-link">访问网站 →</a>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon">📊</div>
+                <h3>国家统计局</h3>
+                <p>官方统计数据查询</p>
+                <a href="http://www.stats.gov.cn" target="_blank" class="btn-link">访问网站 →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新建任务弹窗 -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <h3>新建任务</h3>
+            <form id="taskForm">
+                <div class="form-group">
+                    <label>任务名称</label>
+                    <input type="text" id="taskName" required>
+                </div>
+                <div class="form-group">
+                    <label>截止日期</label>
+                    <input type="date" id="taskDeadline" required>
+                </div>
+                <div class="form-group">
+                    <label>任务描述</label>
+                    <textarea id="taskDesc"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">保存</button>
+                    <button type="button" class="btn-secondary" onclick="closeModal()">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 模板详情弹窗 -->
+    <div id="templateModal" class="modal">
+        <div class="modal-content modal-large">
+            <h3 id="templateTitle"></h3>
+            <div id="templateContent" class="template-preview"></div>
+            <button class="btn-secondary" onclick="closeTemplateModal()">关闭</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
