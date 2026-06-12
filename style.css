@@ -498,6 +498,62 @@ body {
     justify-content: flex-end;
 }
 
+/* 页脚样式 */
+footer {
+    background: #1F2937;
+    color: white;
+    padding: 40px 20px;
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.footer-section h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #3B82F6;
+}
+
+.footer-section p {
+    color: #9CA3AF;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #9CA3AF;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #3B82F6;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 30px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid #374151;
+    text-align: center;
+    color: #6B7280;
+    font-size: 14px;
+}
+
 .template-preview {
     background: #f8f9fa;
     padding: 20px;
